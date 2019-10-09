@@ -6,7 +6,7 @@ public class Grade{
         System.out.println("Please enter grades now: ");
         for(int i = 0; i < 5; i++)
             grades[i] = sc.nextInt();
-        int average = (grades[0] + grades[1] + grades[2] + grades[3] + grades[4]) / 5;          
+        int average = (grades[0] + grades[1] + grades[2] + grades[3] + grades[4]) / grades.length;          
         int max = getMaxValue(grades);
         int min = getMinValue(grades);
         System.out.println("The maximum grade was: " + max + '\n' +
