@@ -1,3 +1,5 @@
+package Java.Projects;
+
 import java.util.Scanner;
 public class Mav{
     public static String add = "add";

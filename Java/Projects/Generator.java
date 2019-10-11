@@ -1,3 +1,5 @@
+package Java.Projects;
+
 import java.util.*;
 
 public class Generator {

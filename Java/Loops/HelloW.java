@@ -1,4 +1,6 @@
-public class HelloW{
+package Java.Loops;
+
+public class HelloW {
     public static void main(String[] args) {
         int x = 1;
         
