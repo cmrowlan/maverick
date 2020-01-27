@@ -1,3 +1,5 @@
 
 *.json
 *.class
+/Programming 2/Labs/HelloWorld/nbproject/private/
+/Programming 2/Labs/HelloWorld/build/
