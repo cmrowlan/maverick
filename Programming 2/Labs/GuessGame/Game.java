@@ -35,7 +35,7 @@ public class Game {
         Scanner sc = new Scanner(System.in);
         for(int x = 0; x < 100; x++) {
         System.out.println("Enter your guess (or q to quit)");
-            while (sc.hasNext()) {
+            while (numGuesses < 1000) {
                 if (sc.hasNextInt()) {
                         int userGuess = sc.nextInt();
                         if (userGuess == randomNumber) {
