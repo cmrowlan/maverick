@@ -8,24 +8,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeController {
+public class ChangePasswordController {
 
-    public void changePassword(ActionEvent actionEvent) throws IOException {
+    public void change(ActionEvent actionEvent) throws IOException {
         Node node = (Node) actionEvent.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         stage.close();
 
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("ChangePassword.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Home.fxml")));
         stage.setScene(scene);
         stage.show();
     }
 
-    public void logout(ActionEvent actionEvent) throws IOException {
+    public void cancel(ActionEvent actionEvent) throws IOException {
         Node node = (Node) actionEvent.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         stage.close();
 
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Home.fxml")));
         stage.setScene(scene);
         stage.show();
     }
