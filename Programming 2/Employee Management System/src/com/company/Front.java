@@ -4,7 +4,6 @@ package com.company;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.text.html.Option;
 
 /**
  *

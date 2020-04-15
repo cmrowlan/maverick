@@ -9,19 +9,17 @@ public class Employee {
     private int id;
     private String name;
     private String DOB;
-    
-    
+
+
+
     //m
     public int getID(){
-        
         return id;
     }//getID
     public String getName(){
-        
         return name;
     }//getName
     public String getDOB(){
-     
         return DOB;
     }
     

@@ -1,22 +1,24 @@
 package com.company;
 
 
+import javax.naming.directory.SearchControls;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 /**
  *
  * @author Chase
  */
-public class OptionMenu extends JFrame{
+public class OptionMenu extends JFrame implements ItemListener, ActionListener {
     //field
-
-
+    Choice cm = new Choice();
+    Button btb = new Button("Continue");
+    String option;
     //method
-    void actionPerformed(ActionEvent ae){
-
-    }
 
 
     //c
@@ -41,30 +43,44 @@ public class OptionMenu extends JFrame{
         f.add(lt);
         
             //middle
+
         Label lm = new Label("Select your option: ");
-        Choice cm = new Choice();
+
+        cm.addItemListener(this);
+        cm.add(" ");
         cm.add("Register");
         cm.add("Search");
         cm.add("List All");
         cm.add("Count");
         cm.add("Exit");
+        btb.addActionListener(this);
         Panel pm = new Panel();
-        pm.add(lm); pm.add(cm);
+        pm.add(lm); pm.add(cm); pm.add(btb);
         f.add(pm);
             //bottom
-        Checkbox cb1 = new Checkbox("Register");
-        Checkbox cb2 = new Checkbox("Search");
-        Checkbox cb3 = new Checkbox("List All");
-        Checkbox cb4 = new Checkbox("Count");
-        Checkbox cb5 = new Checkbox("Exit");
-        Button btb = new Button("Continue");
-        Panel pb = new Panel();
-        pb.add(cb1); pb.add(cb2); pb.add(cb3); pb.add(cb4); pb.add(cb5); pb.add(btb);
-        f.add(pb);
 
-                  
         f.setVisible(true);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        option = (String)e.getItem();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //if item is register then move to that page
+        if (option.equals("Register"))
+            new Register();
+        if (option.equals("Search"))
+            new Search();
+        if (option.equals("List All"))
+            new ListAll();
+        if (option.equals("Count"))
+            new Count();
+        if (option.equals("Exit"))
+            System.exit(0);
+
     }
 }
