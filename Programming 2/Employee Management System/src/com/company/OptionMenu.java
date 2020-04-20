@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 
 /**
  *
@@ -75,8 +76,13 @@ public class OptionMenu extends JFrame implements ItemListener, ActionListener {
             new Register();
         if (option.equals("Search"))
             new Search();
-        if (option.equals("List All"))
-            new ListAll();
+        if (option.equals("List All")) {
+            try {
+                new ListAll();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
         if (option.equals("Count"))
             new Count();
         if (option.equals("Exit"))

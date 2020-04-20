@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
+import java.io.IOException;
 
 /**
  *
@@ -17,6 +18,13 @@ public class Register extends JFrame implements ActionListener, TextListener {
     TextArea tab = new TextArea(2, 40);
     Button btb = new Button("Continue");
     String result;
+    Label lm1 = new Label("Name: ");
+    Label lm2 = new Label("ID: ");
+    Label lm3 = new Label("DOB: ");
+    Label blank = new Label("           ");
+    TextField tfm1 = new TextField(20);
+    TextField tfm2 = new TextField(20);
+    TextField tfm3 = new TextField(20);
     //method
 
 
@@ -45,11 +53,12 @@ public class Register extends JFrame implements ActionListener, TextListener {
         //middle
         result = "Successfully registered";
         Panel pm = new Panel();
-        pm.add(btb);
+        pm.add(lm1);pm.add(tfm1);pm.add(lm2);pm.add(tfm2);pm.add(blank); pm.add(lm3);pm.add(tfm3);
+        tfm1.addTextListener(this);tfm2.addTextListener(this);tfm3.addTextListener(this);
         btb.addActionListener(this);
         //bottom
          Panel pb = new Panel();
-        pb.add(tab);
+        pb.add(btb);pb.add(tab);
 
         f.add(pm);
         f.add(pb);
@@ -60,7 +69,13 @@ public class Register extends JFrame implements ActionListener, TextListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        try {
+            DB.register(tfm1.getText(), tfm2.getText(), tfm3.getText());
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
         tab.append(result);
+        new OptionMenu();
     }
 
     @Override

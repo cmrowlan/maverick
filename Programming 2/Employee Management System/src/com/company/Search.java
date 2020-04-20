@@ -4,19 +4,24 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.TextEvent;
+import java.awt.event.TextListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  *
  * @author Chase
  */
-public class Search extends JFrame{
+public class Search extends JFrame implements ActionListener, TextListener {
     //field
-
+    Label lm1 = new Label("Enter ID: ");
+    TextField tfm1 = new TextField(20);
+    Button btm = new Button("Search");
+    public static Label lb1 = new Label("Test");
 
     //method
-    void actionPerformed(ActionEvent ae){
-
-    }
 
 
     //c
@@ -41,13 +46,32 @@ public class Search extends JFrame{
         f.add(lt);
 
         //middle
-
+        Panel pm = new Panel();
+        pm.add(lm1);pm.add(tfm1);pm.add(btm);
+        btm.addActionListener(this);
         //bottom
+        Panel pb = new Panel();
+        pb.add(lb1);
 
-
-
+        f.add(pm);
+        f.add(pb);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            lb1.setText(DB.search(tfm1.getText()));
+
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+    }
+
+    @Override
+    public void textValueChanged(TextEvent e) {
 
     }
 }

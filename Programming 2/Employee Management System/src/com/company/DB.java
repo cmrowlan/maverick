@@ -1,36 +1,36 @@
 package com.company;
 
+import java.io.*;
+
 public class DB {
     //f
-    Employee DB[] = new Employee[10];
-    int counter;
 
     //m
-    public Employee register(Employee emp){
-        DB[counter] = emp;
-        counter++;
-        return DB[counter-1];
+    public static void register(String Name, String ID, String DOB) throws IOException {
+        //print to DB.txt
+        FileWriter wr = new FileWriter("DB.txt", true);
+        wr.write(ID + " " + Name + " " + DOB + '\r' + '\n');
+        wr.close();
 
     }//reg
 
-    public void search(int ID){
-        for (int i = 0; i<DB.length; i++)
-            if (DB[i].getID() == ID)
-                System.out.println("Employee " + ID + ":" +DB[i].getName()+" " + DB[i].getDOB());
-            else break;
+    public static String search(String ID) throws FileNotFoundException {
+        return "Hi";
     }
+    public void numEmployees () {
 
-    public int numEmployees(){
-        int result = counter;
-        return result;
+        }
+    public static void listEmployees() throws IOException {
+        FileReader reader = new FileReader("DB.txt");
+        BufferedReader bufferedReader = new BufferedReader(reader);
+
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null) {
+                ListAll.tam.append(line + '\r' + '\n');
+            }
+        reader.close();
+        }
     }
-    public void listEmployees(){
-        for (int i = 0; i<DB.length; i++)
-            if (DB[i] != null)
-                System.out.println(DB[i].getID() + " " +DB[i].getName() + " " +DB[i].getDOB());
-            else
-                break;
-    }
-}
 
 
