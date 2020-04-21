@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  *
@@ -62,12 +61,9 @@ public class Search extends JFrame implements ActionListener, TextListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try {
-            lb1.setText(DB.search(tfm1.getText()));
+        lb1.setSize(20,20);
+        lb1.setText(DB.finalAns);
 
-        } catch (FileNotFoundException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        }
     }
 
     @Override

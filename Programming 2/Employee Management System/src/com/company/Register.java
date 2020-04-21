@@ -51,7 +51,7 @@ public class Register extends JFrame implements ActionListener, TextListener {
         f.add(lt);
 
         //middle
-        result = "Successfully registered";
+
         Panel pm = new Panel();
         pm.add(lm1);pm.add(tfm1);pm.add(lm2);pm.add(tfm2);pm.add(blank); pm.add(lm3);pm.add(tfm3);
         tfm1.addTextListener(this);tfm2.addTextListener(this);tfm3.addTextListener(this);
@@ -64,7 +64,7 @@ public class Register extends JFrame implements ActionListener, TextListener {
         f.add(pb);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        result = tfm1.getText() + "Successfully registered";
     }
 
     @Override
