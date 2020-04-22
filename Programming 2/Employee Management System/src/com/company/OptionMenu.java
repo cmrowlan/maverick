@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -83,8 +84,13 @@ public class OptionMenu extends JFrame implements ItemListener, ActionListener {
                 ioException.printStackTrace();
             }
         }
-        if (option.equals("Count"))
-            new Count();
+        if (option.equals("Count")) {
+            try {
+                new Count();
+            } catch (FileNotFoundException fileNotFoundException) {
+                fileNotFoundException.printStackTrace();
+            }
+        }
         if (option.equals("Exit"))
             System.exit(0);
 

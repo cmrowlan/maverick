@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.TextListener;
+import java.io.FileNotFoundException;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Count extends JFrame implements ActionListener {
     //method
 
     //c
-    Count(){
+    Count() throws FileNotFoundException {
         //container
         JFrame f = new JFrame("Search");
         f.setBounds(10, 10, 600, 400);
@@ -40,7 +41,7 @@ public class Count extends JFrame implements ActionListener {
 
         //middle
         Panel pm = new Panel();
-        Label lm1 = new Label(Integer.toString(DB.counter));
+        Label lm1 = new Label(Integer.toString(DB.count()));
         pm.add(lm1);
 
         //bottom

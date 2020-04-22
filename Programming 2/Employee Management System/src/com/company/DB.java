@@ -14,7 +14,6 @@ public class DB {
         FileWriter wr = new FileWriter("DB.txt", true);
         wr.write(ID + " " + Name + " " + DOB + '\r' + '\n');
         wr.close();
-        counter++;
     }//reg
 
     public static void search(String ID) {
@@ -38,7 +37,16 @@ public class DB {
             }
         reader.close();
         }
+
+    public static int count() throws FileNotFoundException {
+        Scanner file = new Scanner(new File("DB.txt"));
+        while (file.hasNextLine()) {
+            counter++;
+            file.nextLine();
+        }
+        return counter;
     }
+}
 
 
 
