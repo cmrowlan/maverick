@@ -61,8 +61,8 @@ public class Search extends JFrame implements ActionListener, TextListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        lb1.setSize(20,20);
-        lb1.setText(DB.finalAns);
+        lb1.setSize(40,40);
+        lb1.setText(DB.search(this.tfm1.getText()));
 
     }
 

@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class DB {
     //f
     static int counter = 0;
-    static String finalAns = "";
+
     //m
          //done
     public static void register(String Name, String ID, String DOB) throws IOException {
@@ -16,7 +16,8 @@ public class DB {
         wr.close();
     }//reg
 
-    public static void search(String ID) {
+    public static String search(String ID) {
+        String finalAns = new String();
         Scanner scanner = new Scanner("DB.txt");
         while (scanner.hasNext()) {
             String lineFromFile = scanner.nextLine();
@@ -24,8 +25,8 @@ public class DB {
                 finalAns = lineFromFile;
             }
         }
+        return finalAns;
     }
-        //done
     public static void listEmployees() throws IOException {
         FileReader reader = new FileReader("DB.txt");
         BufferedReader bufferedReader = new BufferedReader(reader);
