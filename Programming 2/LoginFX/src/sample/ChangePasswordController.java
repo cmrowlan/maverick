@@ -7,6 +7,7 @@ import java.io.IOException;
 public class ChangePasswordController {
 
     public void change(ActionEvent actionEvent) throws IOException {
+
         Common.loadWindow(actionEvent, "Home.fxml");
     }
 

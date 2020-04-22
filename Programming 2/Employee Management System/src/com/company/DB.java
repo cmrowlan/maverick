@@ -16,16 +16,21 @@ public class DB {
         wr.close();
     }//reg
 
-    public static String search(String ID) {
-        String finalAns = new String();
-        Scanner scanner = new Scanner("DB.txt");
-        while (scanner.hasNext()) {
-            String lineFromFile = scanner.nextLine();
-            if (lineFromFile.contains(ID)) {
-                finalAns = lineFromFile;
+    public static String search(String ID) throws IOException {
+        String input[] = new String[10];
+        int cnt = 1;
+        int command = Integer.parseInt(ID);
+        BufferedReader br = new BufferedReader(new FileReader("DB.txt"));
+        while (true){
+            String str = br.readLine();
+            if (str == null){
+                break;
             }
+            input[cnt] = str;
+            System.out.println(input[cnt]);
+            cnt++;
         }
-        return finalAns;
+        return input[command];
     }
     public static void listEmployees() throws IOException {
         FileReader reader = new FileReader("DB.txt");
