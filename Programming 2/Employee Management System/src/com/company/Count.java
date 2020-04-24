@@ -56,6 +56,7 @@ public class Count extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //uses go back button to indicate a return to menu
         new OptionMenu();
     }
 }

@@ -18,7 +18,7 @@ public class Search extends JFrame implements ActionListener, TextListener {
     Label lm1 = new Label("Enter ID: ");
     TextField tfm1 = new TextField(20);
     Button btm = new Button("Search");
-    public static Label lb1 = new Label("");
+    public static Label lb1 = new Label("", Label.CENTER);
 
     //method
 
@@ -62,7 +62,8 @@ public class Search extends JFrame implements ActionListener, TextListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        lb1.setSize(40,40);
+        lb1.setSize(100,100);
+        //search method called to find text to print
         try {
             lb1.setText(DB.search(tfm1.getText()));
         } catch (IOException ioException) {

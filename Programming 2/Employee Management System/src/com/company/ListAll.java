@@ -57,6 +57,7 @@ public class ListAll extends JFrame implements ActionListener, TextListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //uses go back button to indicate a return to menu
         new OptionMenu();
     }
 

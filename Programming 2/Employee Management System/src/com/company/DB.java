@@ -19,6 +19,8 @@ public class DB {
     public static String search(String ID) throws IOException {
         String input[] = new String[10];
         int cnt = 1;
+        //all users are entered as the ID space is needed
+        //use text line from .txt to find ID
         int command = Integer.parseInt(ID);
         BufferedReader br = new BufferedReader(new FileReader("DB.txt"));
         while (true){
