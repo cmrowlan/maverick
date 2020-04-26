@@ -1,10 +1,15 @@
 package sample;
 
 public class User {
-    String name;
-    String username;
-    String pwd;
-    String email;
+    private String name;
+    private String username;
+    private String pwd;
+    private String email;
 
-    
+    public User(String _name, String _username, String _pwd, String _email){
+        name = _name;
+        username = _username;
+        pwd = _pwd;
+        email = _email;
+    }
 }

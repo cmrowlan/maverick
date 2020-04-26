@@ -64,7 +64,7 @@ public class Register extends JFrame implements ActionListener, TextListener {
         f.add(pb);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        result = tfm1.getText() + "Successfully registered";
+        String result = tfm1.getText();
     }
 
     @Override
@@ -74,7 +74,8 @@ public class Register extends JFrame implements ActionListener, TextListener {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        tab.append(result);
+        String result = tfm1.getText();
+        tab.append(result + " is successfully registered!");
         new OptionMenu();
     }
 

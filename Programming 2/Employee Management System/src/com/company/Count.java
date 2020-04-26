@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.TextListener;
 import java.io.FileNotFoundException;
 
 /**
@@ -56,6 +55,7 @@ public class Count extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //uses go back button to indicate a return to menu
         new OptionMenu();
     }
 }
