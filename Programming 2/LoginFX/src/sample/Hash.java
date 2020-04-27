@@ -6,17 +6,16 @@ import java.security.SecureRandom;
 
 public class Hash {
 
-    public String getHash(String passwordToHash, boolean withSalt) throws NoSuchAlgorithmException {
+    public String getHash(String passwordToHash, byte[] salt) throws NoSuchAlgorithmException {
         String generatedPassword = null;
         // https://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html#MessageDigest
         MessageDigest md = MessageDigest.getInstance("SHA-512");
 
-        if (withSalt == true) {
-            byte[] saltValue = getSalt();
+            byte[] saltValue = salt;
             md.update(saltValue);
-        }
 
-        byte[] bytes = md.digest();
+
+        byte[] bytes = md.digest(passwordToHash.getBytes());
         StringBuilder sb = new StringBuilder();
 
         for (int i=0; i < bytes.length; i++) {

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Main extends Application {
     public static ArrayList<User> users = new ArrayList<>();
+    public Encryption enc = new Encryption();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -19,7 +20,15 @@ public class Main extends Application {
         primaryStage.show();
 
         Main.users = JSONFile.Load();
-        int x = 0;
+        for (int x = 0; x < Main.users.size(); x++) {
+            String name = Main.users.get(x).getName();
+            String decName = enc.decrypt(name, "ABC123");
+            Main.users.get(x).setName(decName);
+            String email = Main.users.get(x).getEmail();
+            String decEmail = enc.decrypt(email, "ABC123");
+            Main.users.get(x).setName(decEmail);
+
+        }
 
     }
 

@@ -43,8 +43,7 @@ public class JSONFile {
 
         try{
             FileReader file = new FileReader("users.json");
-            Object data = parser.parse(file);
-            JSONArray dataList = (JSONArray) data;
+            JSONArray dataList = (JSONArray) parser.parse(file);
 
             for (int x = 0; x<dataList.size(); x++){
                 User user = new User();
