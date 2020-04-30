@@ -42,8 +42,13 @@ const saveNotes = (notes) => {
 const readNote = (title) => {
     const notes = loadNotes()
     const queryNote = notes.find((note) => note.title === title)
-    console.log(chalk.bgBlue(queryNote))
-
+    
+    if (queryNote){
+        console.log(chalk.bgBlue(queryNote.title))
+        console.log(chalk.bgGray(queryNote.body))
+    }else{
+        console.log(chalk.bgRed('Note not found'))
+    }
 }
 
 const listNotes = () => {
@@ -71,5 +76,6 @@ module.exports = {
     addNote: addNote,
     removeNote: removeNote,
     listNotes: listNotes,
+    readNote: readNote,
 
 }
