@@ -10,9 +10,19 @@ import java.io.IOException;
 
 public class HomeController {
     @FXML
-    public Label lblStatus;
+    public Label lblEmail;
+    @FXML
+    public Label lblName;
+    @FXML
+    public Label lblUsername;
 
 
+
+    public void initialize() {
+        lblName.setText(Main.currentUser.getName());
+        lblEmail.setText(Main.currentUser.getEmail());
+        lblUsername.setText(Main.currentUser.getUsername());
+    }
     public void changePassword(ActionEvent actionEvent) throws IOException {
         Common.loadWindow(actionEvent, "ChangePassword.fxml");
     }

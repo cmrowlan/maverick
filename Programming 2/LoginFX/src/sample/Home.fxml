@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -14,10 +13,8 @@
       </Label>
       <Button fx:id="btnLogout" layoutX="284.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
       <Button fx:id="btnChangePassword" layoutX="160.0" layoutY="14.0" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../out/production/LoginFX/sample/green-check-mark-theme-checkbox-user-interface-line-logo-symbol-circle-png-clip-art.png" />
-         </image>
-      </ImageView>
+      <Label fx:id="lblName" layoutX="14.0" layoutY="100.0" prefHeight="17.0" prefWidth="130.0" text="[Name]" />
+      <Label fx:id="lblEmail" layoutX="14.0" layoutY="233.0" prefHeight="17.0" prefWidth="130.0" text="[Email]" />
+      <Label fx:id="lblUsername" layoutX="14.0" layoutY="167.0" prefHeight="17.0" prefWidth="130.0" text="[Username]" />
    </children>
 </AnchorPane>

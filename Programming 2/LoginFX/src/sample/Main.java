@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Main extends Application {
     public static ArrayList<User> users = new ArrayList<>();
+    public static User currentUser = new User();
     public Encryption enc = new Encryption();
 
     @Override
@@ -26,7 +27,7 @@ public class Main extends Application {
             Main.users.get(x).setName(decName);
             String email = Main.users.get(x).getEmail();
             String decEmail = enc.decrypt(email, "ABC123");
-            Main.users.get(x).setName(decEmail);
+            Main.users.get(x).setEmail(decEmail);
 
         }
 

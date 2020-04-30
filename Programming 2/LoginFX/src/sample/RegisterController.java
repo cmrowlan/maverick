@@ -37,26 +37,28 @@ public class RegisterController {
     }
 
     public void register(ActionEvent actionEvent) throws IOException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
+        Hash hash = new Hash();
         User user = new User();
         user.setName(txtName.getText());
         user.setEmail(txtEmail.getText());
         user.setUsername(txtUsername.getText());
-        user.setPwd(txtCPwd.getText());
-        user.setSalt(null);
+
+        byte[] salt = hash.getSalt();
+        String pwd = hash.getHash(txtCPwd.getText(), salt);
+        user.setPwd(pwd);
+        String saltString = Base64.getEncoder().encodeToString(salt);
+        user.setSalt(saltString);
+
 
         Main.users.add(user);
-        Hash hash = new Hash();
+
         Encryption enc = new Encryption();
         for (int x = 0; x<Main.users.size(); x++){
             String encName = enc.encrypt(Main.users.get(x).getName(), "ABC123");
             Main.users.get(x).setName(encName);
             String encEmail = enc.encrypt(Main.users.get(x).getEmail(), "ABC123");
             Main.users.get(x).setEmail(encEmail);
-            byte[] salt = hash.getSalt();
-            String pwd = hash.getHash(Main.users.get(x).getPwd(), salt);
-            Main.users.get(x).setPwd(pwd);
-            String saltString = Base64.getEncoder().encodeToString(salt);
-            Main.users.get(x).setSalt(saltString);
+
 
         }
 

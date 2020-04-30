@@ -20,22 +20,21 @@ public class LoginController {
     public Label lblError;
 
     public void login(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException {
-        User currentUser = new User();
 
         for(int x = 0; x<Main.users.size(); x++){
             if(Main.users.get(x).getUsername().equals(txtUsername.getText())){
-                currentUser = Main.users.get(x);
+                Main.currentUser = Main.users.get(x);
                 continue;
             }else{
                 lblError.setText("Username or Password is incorrect!");
                 return;
             }
         }
-        if (currentUser != null){
+        if (Main.currentUser.getUsername() != null){
             Hash hash = new Hash();
-            byte[] saltByte = Base64.getDecoder().decode(currentUser.getSalt());
+            byte[] saltByte = Base64.getDecoder().decode(Main.currentUser.getSalt());
             String hashedPwd = hash.getHash(txtPwd.getText(), saltByte);
-            if (currentUser.getPwd().equals(hashedPwd)){
+            if (Main.currentUser.getPwd().equals(hashedPwd)){
                 Common.loadWindow(actionEvent, "Home.fxml");
             }else{
                 lblError.setText("Username or Password is incorrect!");
